@@ -33,6 +33,7 @@ nosetests.xml
 .project
 .pydevproject
 *.db
+*.tar
 
 # Complexity
 output/*.html
