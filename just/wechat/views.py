@@ -6,13 +6,12 @@ from wechat_sdk.messages import TextMessage, VoiceMessage, ImageMessage, VideoMe
 
 from flask import request, Blueprint, render_template
 
-blueprint = Blueprint('wechat', __name__, static_folder='../static')
+blueprint = Blueprint('wechat', __name__)
 
 
-@blueprint.route('/', methods=['POST', 'GET'])
+@blueprint.route('/wechat', methods=['POST', 'GET'])
 def wechat():
-    """HOME PAGE"""
-    # return render_template('public/home.html')
+    """WECHAT"""
     import os
     from ConfigParser import ConfigParser
     config = ConfigParser()
