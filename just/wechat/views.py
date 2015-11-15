@@ -6,7 +6,7 @@ from wechat_sdk.messages import TextMessage, VoiceMessage, ImageMessage, VideoMe
 
 from flask import request, Blueprint, render_template
 
-blueprint = Blueprint('wechat', __name__, url_prefix='/wechat')
+blueprint = Blueprint('wechat', __name__, url_prefix='/wechat', static_folder='../static')
 
 
 @blueprint.route('/', methods=['POST', 'GET'])
@@ -32,7 +32,7 @@ def wechat():
     wechat = WechatBasic(token=token, appid=appid, appsecret=appsecret)
 
     # 对签名进行校验
-    if wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
+    if not wechat.check_signature(signature=signature, timestamp=timestamp, nonce=nonce):
         return 'fail'
 
     # 验证服务器地址的有效性
