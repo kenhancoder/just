@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Wechat views."""
 
+import time
+
 from wechat_sdk import WechatBasic
 from wechat_sdk.messages import TextMessage, VoiceMessage, ImageMessage, VideoMessage, LinkMessage, LocationMessage, EventMessage
 
@@ -38,6 +40,12 @@ def wechat():
     echostr = request.args.get('echostr')
     if echostr:
         return echostr
+
+    # 更新 access_token
+    cache_access_token_info = wechat.get_access_token()
+    expries_at = cache_access_token_info.get('access_token_expires_at', None)
+    if expries_at is None or expries_at < int(time.time()):
+        wechat.grant_token()
 
     wechat.parse_data(request.data)
     message = wechat.get_message()
