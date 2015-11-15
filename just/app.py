@@ -27,8 +27,10 @@ def register_extensions(app):
     bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
-    login_manager.init_app(app)
-    debug_toolbar.init_app(app)
+    # login_manager.init_app(app)
+    import os
+    if os.environ.get('JUST_ENV') in (None, 'dev'):
+        debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     return None
 
