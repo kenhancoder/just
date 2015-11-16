@@ -1,5 +1,7 @@
 *.py[cod]
 
+*.pyc
+
 # C extensions
 *.so
 
@@ -33,7 +35,7 @@ nosetests.xml
 .project
 .pydevproject
 *.db
-*.tar
+*tar
 
 # Complexity
 output/*.html
@@ -45,4 +47,4 @@ docs/_build
 .webassets-cache
 
 # Virtualenvs
-env/
+env
