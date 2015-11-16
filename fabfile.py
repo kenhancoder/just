@@ -34,9 +34,9 @@ def build():
         local(' '.join(cmd))
 
 
-
 _REMOTE_TMP_TAR = '/tmp/%s' % _TAR_FILE
 _REMOTE_BASE_DIR = '/srv/just'
+
 
 def deploy():
     newdir = 'just-%s' % datetime.datetime.now().strftime('%y-%m-%d_%H.%M.%S')
@@ -51,13 +51,13 @@ def deploy():
     with cd('%s/%s' % (_REMOTE_BASE_DIR, newdir)):
         sudo('tar -xzvf %s' % _REMOTE_TMP_TAR)
     # 重置软链接:
+    with cd('/var/www'):
+        sudo('rm -f just')
+        sudo('ln -s %s/%s just' % (_REMOTE_BASE_DIR, newdir))
+        sudo('chown www-data:www-data just')
     with cd(_REMOTE_BASE_DIR):
-        sudo('rm -f /var/www/just')
-        sudo('ln -s %s /var/www/just' % newdir)
-        sudo('chown www-data:www-data /var/www/just')
         sudo('chown -R www-data:www-data %s' % newdir)
     # 重启Python服务和nginx服务器:
     with settings(warn_only=True):
-        sudo('supervisorctl stop just')
-        sudo('supervisorctl start just')
-        sudo('/etc/init.d/nginx reload')
+        run('supervisorctl reload')
+        run('service nginx restart')
