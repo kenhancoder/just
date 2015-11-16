@@ -1,3 +1,0 @@
-[console_scripts]
-pep257 = pep257:main
-
