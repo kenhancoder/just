@@ -1,0 +1,3 @@
+[flake8.extension]
+flake8_debugger = flake8_debugger:DebugStatementChecker
+

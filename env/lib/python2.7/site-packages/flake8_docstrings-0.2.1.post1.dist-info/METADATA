@@ -1,0 +1,95 @@
+Metadata-Version: 2.0
+Name: flake8-docstrings
+Version: 0.2.1.post1
+Summary: Extension for flake8 which uses pep257 to check docstrings
+Home-page: https://gitlab.com/pycqa/flake8-docstrings
+Author: Ian Cordasco
+Author-email: graffatcolmingov@gmail.com
+License: Copyright (c) 2013 Simon Andre, Ian Cordasco
+Requires-Dist: flake8
+Requires-Dist: pep257
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+Description: flake8-docstrings
+        =================
+        
+        A simple module that adds an extension for the fantastic pep257_ tool to 
+        flake8_.
+        
+        Simply install this extension::
+        
+            pip install flake8_docstrings
+        
+        and run flake8.
+        
+        There are no error numbers to print or ignore.
+        
+        .. _pep257: https://github.com/GreenSteam/pep257
+        .. _flake8: https://bitbucket.org/tarek/flake8
+        
+        
+        History/Changelog
+        =================
+        
+        0.2.1
+        -----
+        
+        - Prevent AllError or EnvironmentErrors from being raised. Thanks Alex
+          Pyrgiotis.
+        
+        0.2.0
+        -----
+        
+        - Upgrade to pep257 0.3.0
+        
+        0.1.4
+        -----
+        
+        - Stop truncating error messages
+        
+        0.1.3
+        -----
+        
+        - Really fix the installation issue this time.
+        
+        0.1.2
+        -----
+        
+        - Actually fix the PyPI release. **Ugh**
+        
+        0.1.1
+        -----
+        
+        - Fix the PyPI release.
+        
+        0.1.0
+        -----
+        
+        - Initial Release!
+        
+Keywords: PEP 257,pep257,docstrings,flake8
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Provides: flake8_docstrings
