@@ -10,6 +10,9 @@ Werkzeug==0.10.4
 Jinja2==2.8
 itsdangerous==0.24
 
+# Flask RESTFUL API
+flask-restful==0.3.4
+
 # Database
 Flask-SQLAlchemy==2.1
 SQLAlchemy==1.0.9
