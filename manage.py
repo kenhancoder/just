@@ -10,7 +10,6 @@ from flask_script import Command, Manager, Option, Server, Shell
 from flask_script.commands import Clean, ShowUrls
 
 from just.app import create_app
-from just.api import create_api
 from just.database import db
 from just.settings import DevConfig, ProdConfig
 from just.user.models import User
@@ -20,7 +19,6 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 TEST_PATH = os.path.join(HERE, 'tests')
 
 app = create_app(CONFIG)
-api = create_api(app)
 manager = Manager(app)
 
 def _make_context():

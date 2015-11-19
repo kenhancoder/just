@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+from flask.ext.restful import Api
 from flask import Flask, render_template
 
 from just import public, wechat
-
+from just.resources.v1_0 import api_blueprint
 from just.assets import assets
 from just.extensions import bcrypt, cache, db, debug_toolbar, migrate
 from just.settings import ProdConfig
 
+global api
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -19,6 +21,7 @@ def create_app(config_object=ProdConfig):
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
+
     return app
 
 
@@ -42,6 +45,7 @@ def register_blueprints(app):
     # app.register_blueprint(user.views.blueprint)
     app.register_blueprint(wechat.views.blueprint)
     # app.register_blueprint(api.views.blueprint)
+    app.register_blueprint(api_blueprint)
     return None
 
 

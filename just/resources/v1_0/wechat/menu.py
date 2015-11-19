@@ -5,14 +5,17 @@ import time
 
 from flask.ext.restful import Resource, fields
 
+from just.resources.v1_0 import api
 from just.wechat import wechat_entity
 
+# menus_fields = {
+#     'button': fields.List(
 
-menus_fields = {
-    'button': fields
+
+#         )
 
 
-}
+# }
 
 menus = {
     'button': [
@@ -49,7 +52,7 @@ menus = {
     ]
 }
 
-
+@api.resource('/menus')
 class Menu(Resource):
     """Wechat Menu Resource"""
 
@@ -70,6 +73,6 @@ class Menu(Resource):
 
     def post(self):
         self.check_access_token()
-        return self.wechat.create_menu
+        return self.wechat.create_menu(menus)
 
         pass
